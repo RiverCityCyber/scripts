@@ -26,11 +26,12 @@ def main():
     config = dotenv_values(".env")
     api_key = config["api_key"]
     api_secret = config["api_secret"]
-    getURL = 'https://opnsense.lan.rivercitycyber.com/api/core/firmware/status'
-    postURL = 'https://opnsense.lan.rivercitycyber.com/api/core/firmware/update'
-    rebootURL = 'https://opnsense.lan.rivercitycyber.com/api/core/firmware/reboot'
-    upgradeURL = 'https://opnsense.lan.rivercitycyber.com/api/core/firmware/upgrade'
-    upgrStatusURL = 'https://opnsense.lan.rivercitycyber.com/api/core/firmware/upgradestatus'
+    baseURL = 'https://opnsense.lan.rivercitycyber.com/api/core/'
+    getURL = baseURL + 'firmware/status'
+    postURL = baseURL + 'firmware/update'
+    rebootURL = baseURL + 'firmware/reboot'
+    upgradeURL = baseURL + 'firmware/upgrade'
+    upgradeStatusURL = baseURL + 'firmware/upgradestatus'
 
     #Run the GET request
     getUpdates = getOPNSense(getURL, api_key, api_secret)
